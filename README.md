@@ -35,6 +35,12 @@ then you must
   label = emit([[sub r0, #1]]);
   emit([[bne 0]] | calc_relative_offset(label, pc()));
 ```
+Forward jump is more complex.
+```C
+  int address = emit([[jmp 0]]);
+  // ...
+  emitAt(address, [[jmp 0]] | calc_offset(pc(), label));
+```
 
 It's too tedious. But this is an TINY assembler.
 
