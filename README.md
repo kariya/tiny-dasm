@@ -57,6 +57,9 @@ Too tedious? Remember this is an TINY assembler.
 When writing an function, you have to know the call convention.
 Some approciate library might help, but there isn't now. Sorry.
 
+### Macro
+No, no, no.
+
 ## Usage
 ```
   bin/dasm.sh source.asm > target.c
