@@ -18,6 +18,8 @@ It use GNU assembler(gas) as external assembler so can support many architecture
 I was inspired this application by DynASM[1].
 
 ## What's NOT supported
+Why so few and poor facilities? Because it is meant to use as 1-path generator.
+Address linking involves multiple path, I'm afraid.
 
 ### label and automatic address computation
 If you want to generate code like 
