@@ -39,7 +39,7 @@ then you must
 It's too tedious. But this is an TINY assembler.
 
 ### use C value as immediate
-Even if yo want to write 
+Even if you want to write 
 ```C
   int x = ...;
   emit([[mov r0, x]]);
@@ -62,6 +62,9 @@ Some approciate library might help, but there isn't now. Sorry.
   bin/dasm.sh source.asm > target.c
   gcc target.c
 ```
+
+## TODO
+Helpful support library (as long as which does not break 1-pathness).
 
 ##License
 GPL
