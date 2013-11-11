@@ -55,7 +55,7 @@ Too tedious? Remember this is an TINY assembler.
 
 ### C call convention support
 When writing an function, you have to know the call convention.
-Some approciate library might help, but there isn't now. Sorry.
+Some appropriate library might help, but there isn't now. Sorry.
 
 ### Macro
 No, no, no.
