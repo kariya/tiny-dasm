@@ -20,6 +20,7 @@ I was inspired this application by DynASM[1].
 ## What's NOT supported
 Why so few and poor features? Because it is meant to be used as 1-path generator with minimal overheads.
 Address linking stuff involves multiple path, I'm afraid.
+(Whenever you have vigor, yo can do anythng!)
 
 ### label and automatic address computation
 If you want to generate code like 
