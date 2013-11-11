@@ -1,9 +1,9 @@
 #! /bin/sh
 
 ## customize the following lines for your architecure:
-CC=gcc
-CFLAGS="-m32"
-OBJDUMP=objdump
+CC=arm-elf-gcc
+CFLAGS="-mthumb"
+OBJDUMP=arm-elf-objdump
 
 
 asm() {
@@ -32,4 +32,4 @@ do
 		echo "$l"
 	fi
 done < $1
-		
+
