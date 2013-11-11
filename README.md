@@ -67,6 +67,8 @@ No, no, no.
 ```
 
 ## TODO
+Add sample C codes (tutorial).
+
 Helpful support library (as long as which does not break 1-pathness).
 
 ##License
