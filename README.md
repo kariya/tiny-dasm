@@ -78,13 +78,19 @@ Add sample C codes (tutorial).
 
 Helpful support library (as long as which does not break 1-pathness).
 
+## Memo
+I made this script for my JIT compiler [2].
+Its target is ARM processor so embedding addresses and immediate values are rahter simpler than x86/x64.
+In fact, for x86/x64 I don't use it so much.
+
+
 ##License
 GPL
 
 ## Refernece
 [1] http://luajit.org/dynasm.html
 
-
+[2] https://github.com/kariya/brainfuck-hp50g
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kariya/tiny-dasm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
