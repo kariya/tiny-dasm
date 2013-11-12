@@ -27,7 +27,8 @@ do
 	if echo "$l" | grep '\[\[.*]]' > /dev/null; then
 		A=$(echo "$l" | sed 's/^.*\[\[\(.*\)]].*$/\1/')
 		C=$(asm $A)
-		echo "$l 	/* $A */" | sed "s/\[\[.*]]/$C/" | sed 's///g'
+		ARGC=$(echo $C | gawk 'BEGIN{FS=","} {print NF}')
+		echo "$l 	/* $A */" | sed "s/\[\[.*]]/$ARGC,$C/" | sed 's///g'
 	else
 		echo "$l"
 	fi
