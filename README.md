@@ -20,7 +20,7 @@ I was inspired this application by DynASM[1].
 ## What's NOT supported
 Why so few and poor features? Because it is meant to be used as 1-path generator with minimal overheads.
 Address linking stuff involves multiple path, I'm afraid.
-(Whenever you have vigor, yo can do anythng!)
+(Whenever you have vigor, yo can do anythng! Fight!!)
 
 ### label and automatic address computation
 If you want to generate code like 
@@ -40,8 +40,10 @@ Forward jump is more complex.
 ```C
   int address = emit([[jmp 0]]);
   // ...
-  emitAt(address, [[jmp 0]] | calc_offset(pc(), label));
+  emitAt(address, [[jmp 0]] | calc_offset(pc(), address));
 ```
+
+(calc_relative_offset() and calc_offset() is for explanation, not included in this script. Sorry)
 
 It's too tedious. But this is an TINY assembler.
 
@@ -78,13 +80,19 @@ Add sample C codes (tutorial).
 
 Helpful support library (as long as which does not break 1-pathness).
 
+## Memo
+I made this script for my JIT compiler [2].
+Its target is ARM processor so embedding addresses and immediate values are rahter simpler than x86/x64.
+In fact, for x86/x64 I don't use it so much.
+
+
 ##License
 GPL
 
 ## Refernece
 [1] http://luajit.org/dynasm.html
 
-
+[2] https://github.com/kariya/brainfuck-hp50g
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kariya/tiny-dasm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

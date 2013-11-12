@@ -33,16 +33,13 @@ char* emitPc() { return codep; }
 
 /* function prologue */
 char* emitPrologue() {
-	char* start = emit([[push %ebp]]);
-	emit([[mov %esp, %ebp]]);
+	char* start = emit([[nop]]);
 	return start;
 }
 
 /* function epilogue */
 char* emitEpilogue() {
-	char* start = emit([[mov %ebp, %esp]]);
-	emit([[pop %ebp]]);
-	emit([[ret]]);
+	char* start = emit([[ret]]);
 	return start;
 }
 
@@ -55,18 +52,19 @@ void dump() {
 	printf("}");
 }
 
-/* int f(int x) { return x; } */
+/* int f(int x, int y) { return x + y; } */
 main () {
 	emitInit();
 
 	char* f = emitPrologue();
-	emit([[mov 8(%ebp), %eax]]);
+	emit([[add %rdi, %rsi]]);
+	emit([[mov %rsi, %rax]]);
 	emitEpilogue();
 
 #ifdef DUMP
 	dump();
 #else
-	int x = ((int (*)(int))f)(1);
+	int x = ((int (*)(int, int))f)(1, 2);
 	printf("%d\n", x);
 #endif
 }
