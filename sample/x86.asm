@@ -5,6 +5,7 @@
 
 char *code, *codep;	
 
+/* initialize; call first once */
 void emitInit() {
 	int psize = sysconf(_SC_PAGESIZE);
 	if(posix_memalign(&code, psize, psize)) err(1, "memalign");
@@ -12,6 +13,7 @@ void emitInit() {
 	codep = code;
 }
 
+/* emits machine codes */
 char* emit(int argc, ...) {
 	int i;
 	char* start = codep;
@@ -26,14 +28,17 @@ char* emit(int argc, ...) {
 	return start;
 }
 
+/* returns address which is the start address of next emit() */
 char* emitPc() { return codep; }
 
+/* function prologue */
 char* emitPrologue() {
 	char* start = emit([[push %ebp]]);
 	emit([[mov %esp, %ebp]]);
 	return start;
 }
 
+/* function epilogue */
 char* emitEpilogue() {
 	char* start = emit([[mov %ebp, %esp]]);
 	emit([[pop %ebp]]);
@@ -41,6 +46,7 @@ char* emitEpilogue() {
 	return start;
 }
 
+/* debug utility */
 void dump() {
 	int i;
 	printf("int f(int x) {");
@@ -49,15 +55,10 @@ void dump() {
 	printf("}");
 }
 
-
+/* int f(int x) { return x; } */
 main () {
 	emitInit();
 
-	emit([[nop]]);
-	emit([[nop]]);
-	emit([[nop]]);
-	emit([[nop]]);
-	emit([[nop]]);
 	char* f = emitPrologue();
 	emit([[mov 8(%ebp), %eax]]);
 	emitEpilogue();
@@ -65,7 +66,7 @@ main () {
 #ifdef DUMP
 	dump();
 #else
-	int x = ((int (*)(int))code)(1);
+	int x = ((int (*)(int))f)(1);
 	printf("%d\n", x);
 #endif
 }
