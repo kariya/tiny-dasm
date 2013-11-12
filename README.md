@@ -84,3 +84,7 @@ GPL
 ## Refernece
 [1] http://luajit.org/dynasm.html
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kariya/tiny-dasm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
