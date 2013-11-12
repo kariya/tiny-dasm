@@ -20,7 +20,7 @@ I was inspired this application by DynASM[1].
 ## What's NOT supported
 Why so few and poor features? Because it is meant to be used as 1-path generator with minimal overheads.
 Address linking stuff involves multiple path, I'm afraid.
-(Whenever you have vigor, yo can do anythng!)
+(Whenever you have vigor, yo can do anythng! Fight!!)
 
 ### label and automatic address computation
 If you want to generate code like 
@@ -40,8 +40,10 @@ Forward jump is more complex.
 ```C
   int address = emit([[jmp 0]]);
   // ...
-  emitAt(address, [[jmp 0]] | calc_offset(pc(), label));
+  emitAt(address, [[jmp 0]] | calc_offset(pc(), address));
 ```
+
+(calc_relative_offset() and calc_offset() is for explanation, not included in this script. Sorry)
 
 It's too tedious. But this is an TINY assembler.
 
