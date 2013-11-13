@@ -11,9 +11,12 @@ You can write in C like:
 ```C
   emit([[mov r0, #1]]);
 ```
-and [[...]] is preprocessed to its machine code.
+and [[...]] is preprocessed to its machine code as if
+```C
+  emit(1, 0xdeadbeaf);
+```
 
-It use GNU assembler(gas) as external assembler so can support many architectures.
+It uses GNU assembler(gas) as an external assembler so can support many architectures.
  
 I was inspired this application by DynASM[1].
 
@@ -95,4 +98,4 @@ GPL
 [2] https://github.com/kariya/brainfuck-hp50g
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kariya/tiny-dasm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-<img src="https://git.kariya.cc/myBadge.png"/>
+<img src="https://git.kariya.cc/myBadge2.png"/>
